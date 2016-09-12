@@ -1,9 +1,9 @@
 set rtp+=/usr/share/vim/autoload/
 
-
+set clipboard=unnamed
 "UI "
 set ruler
-set relativenumber
+set number
 set cursorline
 set nocompatible
 set showcmd 
@@ -69,7 +69,8 @@ set splitright
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
 
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
