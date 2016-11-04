@@ -21,7 +21,9 @@ set backspace=eol,start,indent
 set autoread
 set magic
 
-execute pathogen#infect()
+"Plugins "
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
 
 "Tabs "
 set expandtab
