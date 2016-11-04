@@ -24,7 +24,10 @@ set magic
 "Plugins "
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
-
+Plug 'junegunn/vim-easy-align'
+Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 "Tabs "
 set expandtab
 set smarttab
@@ -51,28 +54,28 @@ set splitright
 
 "Insert mode bindings "
     " Unmap arrow keys " 
-    nmap <left> 	<Nop>
-    nmap <right>	<Nop>
-    nmap <up>	    <Nop>
-    nmap <down>	<Nop>
-    imap <left>   	<Nop>
-    imap <right> 	<Nop>
-    imap <up> 	    <Nop>
-    imap <down> 	<Nop>
-
+    nmap <left 	<Nop>
+    nmap <right	<Nop>
+    nmap <up	    <Nop>
+    nmap <down	<Nop>
+    imap <left   	<Nop>
+    imap <right 	<Nop>
+    imap <up 	    <Nop>
+    imap <down 	<Nop>
+ 
     inoremap jk <Esc>
     inoremap jj <Esc> 
-
 "Normal mode bindings "
     " split settings " 
-    nmap <S-Tab> :tabn <CR>
-    nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
-    nnoremap <C-L> <C-W><C-L>
-    nnoremap <C-H> <C-W><C-H>
+    nmap <S-Tab :tabn <CR>
+    nnoremap <C-J <C-W><C-J>
+    nnoremap <C-K <C-W><C-K>
+    nnoremap <C-L <C-W><C-L>
+    nnoremap <C-H <C-W><C-H>
 
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F5 :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5 :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <F5 :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
