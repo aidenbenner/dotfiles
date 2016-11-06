@@ -21,6 +21,10 @@ set backspace=eol,start,indent
 set autoread
 set magic
 
+
+set colorcolumn=110
+highlight ColorColumn ctermbg=lightgray
+
 "Plugins "
 call plug#begin('~/.vim/plugged')
 Plug 'Valloric/YouCompleteMe'
@@ -29,7 +33,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
+Plug 'auto-pairs-gentle'
+
 call plug#end()
+
+" Change swp file location
+set backupdir=~/.vim/backup_files//
+set directory=~/.vim/swap_files//
+set undodir=~/.vim/undo_files//
 
 "Tabs "
 set expandtab
