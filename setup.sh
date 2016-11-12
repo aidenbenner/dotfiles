@@ -3,10 +3,11 @@ echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-
-echo Create vim backup directories
-mkdir -p ~/.vim/{backup_files,swap_files,undo_files}
+mkdir ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 
 echo Linking files
+mv ~/.vimrc ~/.vimrc_old
 ln -sv $PWD/vimrc ~/.vimrc
+
+vim +PlugInstall +qall
 

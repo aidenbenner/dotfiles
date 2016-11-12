@@ -52,9 +52,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 
 " Change swp file location
-set backupdir=~/.vim/backup_files//
-set directory=~/.vim/swap_files//
-set undodir=~/.vim/undo_files//
+
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 "Tabs "
 set expandtab
