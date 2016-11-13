@@ -3,6 +3,7 @@
 	email = aiden.benner@gmail.com
 [diff]
 	tool = bc3 
+
 [difftool]
 	bc3 = trustExitCode
 [merge]
