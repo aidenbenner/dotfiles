@@ -1,5 +1,3 @@
-set rtp+=/usr/share/vim/autoload/
-
 set clipboard=unnamedplus
 "UI "
 set ruler
