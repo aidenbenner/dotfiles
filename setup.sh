@@ -12,5 +12,8 @@ echo Linking files
 mv ~/.vimrc ~/.vimrc_old
 ln -sv $PWD/vimrc ~/.vimrc
 
+mv ~/.gitconfig ~/.gitconfig_old.
+ln -sv $PWD/gitconfig ~/.gitconfig
+
 vim +PlugInstall +qall
 
