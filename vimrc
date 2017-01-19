@@ -100,8 +100,8 @@ set splitright
     nnoremap <C-H> <C-W><C-H>
 
 nnoremap <F4> :!make 
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cc nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
