@@ -1,3 +1,5 @@
+
+"Use system clipboard
 set clipboard=unnamedplus
 "UI "
 set ruler
@@ -5,6 +7,8 @@ set number
 set cursorline
 set nocompatible
 set showcmd 
+filetype plugin indent on
+
 
 "Colors"
 syntax on
@@ -37,13 +41,22 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'alvan/vim-closetag'
+
 " JS 
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 
+" MD 
+Plug 'reedes/vim-pencil'
+Plug 'reedes/vim-pencil'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
+
+"md, markdown == mkd
+au! BufRead,BufNewFile *.markdown set filetype=mkd
+au! BufRead,BufNewFile *.md       set filetype=mkd
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -100,8 +113,15 @@ set splitright
     nnoremap <C-H> <C-W><C-H>
 
 nnoremap <F4> :!make 
+<<<<<<< HEAD
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cc nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+=======
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+>>>>>>> 029c4ee262e890f17904ce5a586daab2745bd34e
 
 
