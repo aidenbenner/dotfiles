@@ -118,6 +118,11 @@ set splitright
 
 
 nnoremap <F4> :!make 
+<<<<<<< HEAD
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <F5> :w <bar> exec '!g++'.shellescape('%').' -o -g '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+=======
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
@@ -139,5 +144,14 @@ endfunction
 
 
 
+<<<<<<< HEAD
+||||||| merged common ancestors
+autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+=======
+autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+>>>>>>> 029c4ee262e890f17904ce5a586daab2745bd34e
+>>>>>>> de0fe53a00288adb9cca437f9450c4fa3704c67b
 
 
