@@ -1,4 +1,3 @@
-
 "Use system clipboard
 set clipboard=unnamedplus
 "UI "
@@ -9,6 +8,8 @@ set nocompatible
 set showcmd 
 filetype plugin indent on
 
+
+set spell spelllang=en_us
 
 "Colors"
 syntax on
@@ -28,7 +29,6 @@ highlight ColorColumn ctermbg=lightgray
 
 "Plugins "
 call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-gitgutter'
@@ -46,6 +46,7 @@ Plug 'alvan/vim-closetag'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
+
 
 " MD 
 Plug 'reedes/vim-pencil'
@@ -103,7 +104,8 @@ set splitright
     imap <down 	<Nop>
  
     inoremap jk <Esc>
-    inoremap jj <Esc> 
+"    inoremap jj <Esc> 
+
 "Normal mode bindings "
     " split settings " 
     nmap <S-Tab> :tabn <CR>
@@ -112,10 +114,30 @@ set splitright
     nnoremap <C-L> <C-W><C-L>
     nnoremap <C-H> <C-W><C-H>
 
+
+
+
 nnoremap <F4> :!make 
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
+
+
+function CompTemp()
+  :read ~/.vim/templates/comp.cc
+endfunction 
+
+
+
+
+
+
+
+
+
+
 
 
