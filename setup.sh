@@ -14,7 +14,7 @@ mv ~/.vimrc ~/.vimrc_old
 ln -sv $PWD/vimrc ~/.vimrc
 
 mv ~/.vim/templates/comp.cc ~/vim/templates/comp.cc
-ln -sv $PWD/comp.cc ~/.vimr/templates/comp.cc
+ln -sv $PWD/comp.cc ~/.vim/templates/comp.cc
 
 mv ~/.gitconfig ~/.gitconfig_old.
 ln -sv $PWD/gitconfig ~/.gitconfig
