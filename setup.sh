@@ -23,6 +23,12 @@ ln -sv $PWD/gitconfig ~/.gitconfig
 mv ~/.tmux.comf ~/.tmux_comf.old
 ln -sv $PWD/tmux.comf ~/.tmux.comf
 
+mv ~/.bash_aliases ~/.bash_aliases.old
+ln -sv $PWD/bash_aliases~/.bash_aliases
+
+mv ~/.bashrc ~/.bashrc.old
+ln -sv $PWD/bashrc ~/.bashrc
+
 sudo chown -R $USER ~/.vim/
 
 vim +PlugInstall +qall
