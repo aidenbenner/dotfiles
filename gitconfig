@@ -1,15 +1,12 @@
 [user]
 	name = aidenbenner
 	email = aiden.benner@gmail.com
-[diff]
-	tool = bc3 
 
-[difftool]
-	bc3 = trustExitCode
+[diff]
+	tool = meld 
+
 [merge]
-	tool = bc3
-[mergetool]
-	bc3 = trustExitCode
+	tool = meld
 
 [credential]
   helper = cache --timeout 30000
