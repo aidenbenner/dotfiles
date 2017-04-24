@@ -101,37 +101,35 @@ set splitbelow
 set splitright
 
 "Insert mode bindings "
-    " Unmap arrow keys " 
-    nmap <left 	<Nop>
-    nmap <right	<Nop>
-    nmap <up	    <Nop>
-    nmap <down	<Nop>
-    imap <left   	<Nop>
-    imap <right 	<Nop>
-    imap <up 	    <Nop>
-    imap <down 	<Nop>
- 
-    inoremap jk <Esc>
+" Unmap arrow keys " 
+nmap <left 	<Nop>
+nmap <right	<Nop>
+nmap <up	    <Nop>
+nmap <down	<Nop>
+imap <left   	<Nop>
+imap <right 	<Nop>
+imap <up 	    <Nop>
+imap <down 	<Nop>
+
+inoremap jk <Esc>
 "    inoremap jj <Esc> 
 
 "Normal mode bindings "
-    " split settings " 
-    nmap <S-Tab> :tabn <CR>
-    nnoremap <C-J> <C-W><C-J>
-    nnoremap <C-K> <C-W><C-K>
-    nnoremap <C-L> <C-W><C-L>
-    nnoremap <C-H> <C-W><C-H>
+" split settings " 
+nmap <S-Tab> :tabn <CR>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 
 nnoremap <F4> :!make 
 
 autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-autocmd filetype cc nnoremap <C-[> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-
-
+autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
 function CompTemp()
