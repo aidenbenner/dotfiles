@@ -33,6 +33,8 @@ highlight ColorColumn ctermbg=lightgray
 "Plugins "
 call plug#begin('~/.vim/plugged')
 
+" Colors
+Plug 'jacoborus/tender.vim'
 Plug 'micha/vim-colors-solarized'
 
 Plug 'junegunn/vim-easy-align'
