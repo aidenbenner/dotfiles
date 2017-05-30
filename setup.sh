@@ -32,8 +32,6 @@ mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 mkdir -p ~/.vim/templates
 mkdir -p ~/.vim/colors
 
-sudo chown -R $USER ~/.vim/
-
 echo Linking files
 rm ~/.vimrc_old
 mv ~/.vimrc ~/.vimrc_old
@@ -63,5 +61,5 @@ ln -sfv $PWD/bashrc ~/.bashrc
 sudo chown -R $USER: ~/.vim/
 
 vim +PlugInstall +qall
-cp ~/.vim/plugged/tender.vim/colors/tender.vim ../../../colors/tender.vim 
+cp ~/.vim/plugged/tender.vim/colors/tender.vim ~/.vim/colors/tender.vim 
 
