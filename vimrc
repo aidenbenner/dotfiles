@@ -131,18 +131,6 @@ autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc -std=c99 '.shellescape('%')
 autocmd filetype cpp nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
-autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-
-
 function CompTemp()
   :read ~/.vim/templates/comp.cc
 endfunction 
-
-
-
-
-
-
-
-
-
