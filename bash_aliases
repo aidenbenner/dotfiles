@@ -39,5 +39,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 lcd () {
     cd $1
-    ls $1
 }

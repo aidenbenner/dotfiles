@@ -74,6 +74,8 @@ au! BufRead,BufNewFile *.md       set filetype=mkd
 
 map <C-n> :NERDTreeToggle<CR>
 
+" Light line
+set laststatus=2
 
 " Change swp file location
 
