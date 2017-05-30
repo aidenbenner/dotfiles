@@ -18,6 +18,9 @@ syntax on
 set t_Co=256
 colorscheme tender 
 
+" For bash for windows 
+set term=screen-256color
+set t_ut=
 
 "Misc "
 set nocp
