@@ -1,4 +1,29 @@
 #!/bin/bash
+
+echo Install Software
+
+sudo apt-get update 
+
+export install="
+vim 
+redshift 
+rsibreak 
+zsh 
+git 
+xclip
+qpdfview
+mpv
+tmux
+cmake
+" 
+
+for f in $install
+do  
+  sudo apt-get install $f -y 
+done
+
+
+
 echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
