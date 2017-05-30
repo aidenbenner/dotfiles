@@ -8,7 +8,6 @@ set nocompatible
 set showcmd 
 filetype plugin indent on
 
-
 set spell spelllang=en_us
 
 let mapleader = "\<Space>"
@@ -108,15 +107,6 @@ set splitbelow
 set splitright
 
 "Insert mode bindings "
-" Unmap arrow keys " 
-nmap <left 	<Nop>
-nmap <right	<Nop>
-nmap <up	    <Nop>
-nmap <down	<Nop>
-imap <left   	<Nop>
-imap <right 	<Nop>
-imap <up 	    <Nop>
-imap <down 	<Nop>
 
 inoremap jk <Esc>
 "    inoremap jj <Esc> 
@@ -128,7 +118,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
 
 nnoremap <F4> :!make 
 
