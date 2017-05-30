@@ -63,5 +63,5 @@ ln -sfv $PWD/bashrc ~/.bashrc
 sudo chown -R $USER: ~/.vim/
 
 vim +PlugInstall +qall
-mv ./.vim/plugged/tender.vim/colors/tender.vim ../../../colors/tender.vim 
+cp ~/.vim/plugged/tender.vim/colors/tender.vim ../../../colors/tender.vim 
 
