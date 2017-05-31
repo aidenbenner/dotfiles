@@ -25,7 +25,6 @@ do
 done
 
 
-
 echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -51,9 +50,9 @@ rm ~/.gitconfig_old
 mv ~/.gitconfig ~/.gitconfig_old
 ln -sfv $PWD/gitconfig ~/.gitconfig
 
-rm ~/.tmux_comf.old
-mv ~/.tmux.comf ~/.tmux_comf.old
-ln -sfv $PWD/tmux.comf ~/.tmux.comf
+rm ~/.tmux_conf.old
+mv ~/.tmux.conf ~/.tmux_conf.old
+ln -sfv $PWD/tmux.conf ~/.tmux.conf
 
 rm ~/.bash_aliases.old
 mv ~/.bash_aliases ~/.bash_aliases.old
@@ -73,4 +72,9 @@ sudo chown -R $USER: ~/.vim/
 
 vim +PlugInstall +qall
 cp ~/.vim/plugged/tender.vim/colors/tender.vim ~/.vim/colors/tender.vim 
+
+# tmux 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source-file ~/.tmux.conf
+
 
