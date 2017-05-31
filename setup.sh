@@ -17,6 +17,7 @@ qpdfview
 mpv
 tmux
 cmake
+meld
 " 
 
 for f in $install
