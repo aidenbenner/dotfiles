@@ -34,6 +34,10 @@ mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 mkdir -p ~/.vim/templates
 mkdir -p ~/.vim/colors
 
+
+echo Install Antigen
+git clone https://github.com/zsh-users/antigen ~/.antigen/antigen 
+
 echo Linking files
 rm ~/.vimrc_old
 mv ~/.vimrc ~/.vimrc_old
@@ -58,6 +62,11 @@ ln -sfv $PWD/bash_aliases ~/.bash_aliases
 rm ~/.bashrc.old
 mv ~/.bashrc ~/.bashrc.old
 ln -sfv $PWD/bashrc ~/.bashrc
+
+
+rm ~/.zshrc.old
+mv ~/.zshrc ~/.zshrc.old
+ln -sfv $PWD/zshrc ~/.zshrc
 
 
 sudo chown -R $USER: ~/.vim/
