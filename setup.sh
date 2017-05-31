@@ -81,3 +81,10 @@ tmux source-file ~/.tmux.conf
 
 # make zsh default shell
 chsh -s $(which zsh) 
+
+sudo apt-get install python-dev python3-dev
+sudo apt-get install build-essential cmake
+
+cd ~/.vim/bundle/YouCompleteMe 
+./install.py --clang-completer --tern-completer
+
