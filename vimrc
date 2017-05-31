@@ -44,7 +44,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
-Plug 'auto-pairs-gentle'
 Plug 'scrooloose/nerdtree'
 
 Plug 'vim-airline/vim-airline'

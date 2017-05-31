@@ -4,8 +4,10 @@ echo Install Software
 
 sudo apt-get update 
 
+# vim-gtk needed for clipboard on ubuntu 
 export install="
 vim 
+vim-gtk 
 redshift 
 rsibreak 
 zsh 
