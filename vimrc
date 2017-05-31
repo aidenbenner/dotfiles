@@ -6,6 +6,10 @@ set number
 set cursorline
 set nocompatible
 set showcmd 
+set lazyredraw
+
+let loaded_matchparen = 1
+
 filetype plugin indent on
 
 set spell spelllang=en_us
@@ -24,7 +28,6 @@ set t_ut=
 "Misc "
 set nocp
 set wildmenu
-set lazyredraw
 set backspace=eol,start,indent
 set autoread
 set magic
@@ -37,10 +40,8 @@ call plug#begin('~/.vim/plugged')
 
 " Colors
 Plug 'jacoborus/tender.vim'
-Plug 'micha/vim-colors-solarized'
 
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
@@ -49,19 +50,16 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 
 " JS 
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 
-
 " MD 
 Plug 'reedes/vim-pencil'
-Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
-
 Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
