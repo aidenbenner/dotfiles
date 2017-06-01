@@ -47,6 +47,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-css-color'
 Plug 'scrooloose/nerdtree'
 
+Plug 'valloric/youcompleteme'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
