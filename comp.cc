@@ -19,9 +19,9 @@ typedef long long ll;
 int N; 
 int main()
 {
-  cin >> N;
-  while(N--)
-  {
+  std::ios_base::sync_with_stdio(false); 
+  scanf("%d", &N); 
+  for(int T = 1; T<=N; T++){
 
 
   }
