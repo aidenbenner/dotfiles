@@ -20,15 +20,14 @@ cmake
 meld
 npm
 pandoc
-texlive-latex-base
+texlive-latex-base texlive-fonts-recommended texlive-latex-recommended 
+python-dev python3-dev build-essential cmake 
 "
 
 for f in $install
 do  
   sudo apt-get install $f -y 
 done
-sudo apt-get install texlive-fonts-recommended texlive-latex-recommended 
-
 
 echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -37,7 +36,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 mkdir -p ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo
 mkdir -p ~/.vim/templates
 mkdir -p ~/.vim/colors
-
 
 echo Install Antigen
 git clone https://github.com/zsh-users/antigen ~/.antigen/antigen 
@@ -67,12 +65,10 @@ rm ~/.bashrc.old
 mv ~/.bashrc ~/.bashrc.old
 ln -sfv $PWD/bashrc ~/.bashrc
 
-
 rm ~/.zshrc.old
 mv ~/.zshrc ~/.zshrc.old
 ln -sfv $PWD/zshrc ~/.zshrc
 ln -sfv $PWD/ycm_extra_conf.py ~/.ycm_extra_conf.py
-
 
 sudo chown -R $USER: ~/.vim/
 
@@ -85,9 +81,6 @@ tmux source-file ~/.tmux.conf
 
 # make zsh default shell
 chsh -s $(which zsh) 
-
-sudo apt-get install python-dev python3-dev
-sudo apt-get install build-essential cmake
 
 cd ~/.vim/plugged/youcompleteme 
 ./install.py --clang-completer --tern-completer
