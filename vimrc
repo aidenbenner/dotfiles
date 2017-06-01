@@ -54,6 +54,12 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Plug 'alvan/vim-closetag'
 
+
+" Markdown 
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+
 " JS 
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'

@@ -19,6 +19,8 @@ tmux
 cmake
 meld
 npm
+pandoc
+texlive-latex-base
 " 
 
 for f in $install
