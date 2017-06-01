@@ -18,6 +18,7 @@ mpv
 tmux
 cmake
 meld
+npm
 " 
 
 for f in $install
@@ -67,6 +68,7 @@ ln -sfv $PWD/bashrc ~/.bashrc
 rm ~/.zshrc.old
 mv ~/.zshrc ~/.zshrc.old
 ln -sfv $PWD/zshrc ~/.zshrc
+ln -sfv $PWD/ycm_extra_conf.py ~/.ycm_extra_conf.py
 
 
 sudo chown -R $USER: ~/.vim/
