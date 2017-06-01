@@ -2,12 +2,15 @@
 
 echo Install Software
 
-sudo apt-get update 
+sudo add-apt-repository ppa:neovim-ppa/stable -y
+sudo apt-get update -y 
+
 
 # vim-gtk needed for clipboard on ubuntu 
 export install="
 vim 
 vim-gtk 
+neovim
 redshift 
 rsibreak 
 zsh 
