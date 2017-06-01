@@ -78,13 +78,12 @@ cp ~/.vim/plugged/tender.vim/colors/tender.vim ~/.vim/colors/tender.vim
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source-file ~/.tmux.conf
 
-
 # make zsh default shell
 chsh -s $(which zsh) 
 
 sudo apt-get install python-dev python3-dev
 sudo apt-get install build-essential cmake
 
-cd ~/.vim/bundle/YouCompleteMe 
+cd ~/.vim/plugged/youcompleteme 
 ./install.py --clang-completer --tern-completer
 

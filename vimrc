@@ -127,3 +127,8 @@ autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellesca
 function CompTemp()
   :read ~/.vim/templates/comp.cc
 endfunction 
+
+"" Config for YouCompleteMe
+let g:ycm_complete_in_comments=0
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
