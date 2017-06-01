@@ -21,12 +21,13 @@ meld
 npm
 pandoc
 texlive-latex-base
-" 
+"
 
 for f in $install
 do  
   sudo apt-get install $f -y 
 done
+sudo apt-get install texlive-fonts-recommended texlive-latex-recommended 
 
 
 echo Install Vimplug
