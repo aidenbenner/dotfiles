@@ -20,6 +20,7 @@ cmake
 meld
 npm
 pandoc
+octave
 texlive-latex-base texlive-fonts-recommended texlive-latex-recommended 
 python-dev python3-dev build-essential cmake 
 "

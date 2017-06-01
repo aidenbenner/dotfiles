@@ -34,7 +34,6 @@ alias ll='ls -la'
 alias tmux='tmux -2'
 alias octave='octave --no-gui'
 
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
