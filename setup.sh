@@ -73,6 +73,9 @@ mv ~/.zshrc ~/.zshrc.old
 ln -sfv $PWD/zshrc ~/.zshrc
 ln -sfv $PWD/ycm_extra_conf.py ~/.ycm_extra_conf.py
 
+ln -sfv $PWD/gitignore_global ~/.gitignore_global
+
+
 sudo chown -R $USER: ~/.vim/
 
 vim +PlugInstall +qall
