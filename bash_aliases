@@ -1,3 +1,8 @@
+# Probably gonna regret this but it's too annoying
+#alias rm='rm -iv' 
+#alias mv='mv -iv'
+#alias cp='cp -iv'
+
 alias rm='rm -iv' 
 alias mv='mv -iv'
 alias cp='cp -iv'
