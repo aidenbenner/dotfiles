@@ -5,12 +5,10 @@ echo Install Software
 sudo add-apt-repository ppa:neovim-ppa/stable -y
 sudo apt-get update -y 
 
-
 # vim-gtk needed for clipboard on ubuntu 
 export install="
 vim 
 vim-gtk 
-neovim
 redshift 
 rsibreak 
 zsh 
@@ -45,6 +43,7 @@ echo Install Antigen
 git clone https://github.com/zsh-users/antigen ~/.antigen/antigen 
 
 echo Linking files
+
 rm ~/.vimrc_old
 mv ~/.vimrc ~/.vimrc_old
 ln -sfv $PWD/vimrc ~/.vimrc
