@@ -109,4 +109,3 @@ fi
 
 # source ~/.rvm/scripts/rvm
 
-date

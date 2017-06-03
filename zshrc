@@ -39,3 +39,6 @@ DEFAULT_USER='aiden'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+bindkey -v
+
