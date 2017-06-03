@@ -3,9 +3,9 @@
 #alias mv='mv -iv'
 #alias cp='cp -iv'
 
-alias rm='rm -iv' 
-alias mv='mv -iv'
-alias cp='cp -iv'
+alias rm='rm -v' 
+alias mv='mv -v'
+alias cp='cp -v'
 
 # cd 
 alias cd..="cd .."
