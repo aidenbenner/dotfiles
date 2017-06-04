@@ -23,6 +23,5 @@ int main()
   scanf("%d", &N); 
   for(int T = 1; T<=N; T++){
 
-
   }
 }
