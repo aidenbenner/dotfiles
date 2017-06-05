@@ -132,6 +132,8 @@ autocmd filetype cpp nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shel
 autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype py nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<cr>
 
+autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<cr>
+
 function CompTemp()
   :read ~/.vim/templates/comp.cc
 endfunction 
