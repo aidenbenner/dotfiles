@@ -29,6 +29,7 @@ alias gp='git push origin HEAD'
 alias gs='git status'
 alias glog="git log --pretty=format:'%C(yellow)%h%Creset %Cblue%an%Creset %s %Cgreen(%ar)%Creset %Cred%d%Creset'"
 alias gpu='git pull origin HEAD'
+alias gaacp="git add -A && git commit && git push origin HEAD"
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
