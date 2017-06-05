@@ -124,14 +124,13 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <F4> :!make 
-
-autocmd filetype c nnoremap <C-]> :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cc nnoremap <C-]> :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 
-autocmd filetype py nnoremap <silent> <C-]> :exec '!python' shellescape(@%, 1)<cr>
+nnoremap <leader>m :w <bar> exec ':!make' <CR> 
+autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype py nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<cr>
 
 function CompTemp()
   :read ~/.vim/templates/comp.cc
