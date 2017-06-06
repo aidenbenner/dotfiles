@@ -18,13 +18,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 
-antigen theme robbyrussell
+# antigen theme robbyrussell
+# antigen theme agnoster
 
 # Tell antigen that you're done.
 antigen apply
 
 # Minimalist theme
-ZSH_THEME="wezm"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # manually set your language environment
 export LANG=en_US.UTF-8
@@ -42,3 +43,4 @@ fi
 
 bindkey -v
 
+source $ZSH/oh-my-zsh.sh
