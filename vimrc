@@ -46,7 +46,6 @@ set lazyredraw
 let loaded_matchparen = 1
 
 filetype plugin indent on
-filetype plugin on 
 
 set spell spelllang=en_us
 
@@ -121,20 +120,22 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <leader>t :call CompTemp()  <cr>
+nnoremap <leader>t :call CompTemp() <cr>
 nnoremap <leader>m :w <bar> exec ':!make' <CR> 
 
 autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype py nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
+autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 
 function CompTemp()
   :read ~/.vim/templates/comp.cc
-endfunction 
+endfunction!
 
 " Config for YouCompleteMe
 let g:ycm_complete_in_comments=0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+
+
 
