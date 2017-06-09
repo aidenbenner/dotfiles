@@ -1,4 +1,3 @@
-
 " Plugins  
 call plug#begin('~/.vim/plugged')
 
@@ -8,13 +7,11 @@ Plug 'jacoborus/tender.vim'
 " Misc
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
-Plug 'itchyny/lightline.vim'
-Plug 'ap/vim-css-color'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alvan/vim-closetag'
-Plug 'scrooloose/nerdcommenter'
 
 " Autocomplete
 Plug 'valloric/youcompleteme'
@@ -30,7 +27,14 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 
+" CSS 
+Plug 'ap/vim-css-color'
+
 call plug#end()
+
+" Config for YouCompleteMe
+let g:ycm_complete_in_comments=0
+let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 " Use system clipboard
 set clipboard=unnamedplus
@@ -44,23 +48,22 @@ set showcmd
 set lazyredraw
 
 let loaded_matchparen = 1
-
 filetype plugin indent on
-
 set spell spelllang=en_us
 
-let mapleader = "\<Space>"
-
-"Colors"
+" Colors  
 syntax on
 set t_Co=256
 colorscheme tender 
 
-" For bash for windows 
-set term=screen-256color
-set t_ut=
+" Airline  
+set laststatus=2
+let g:airline_theme='simple'
 
-"Misc "
+" Bash for windows 
+set term=screen-256color
+
+" Misc 
 set nocp
 set wildmenu
 set backspace=eol,start,indent
@@ -76,16 +79,13 @@ au! BufRead,BufNewFile *.md       set filetype=mkd
 
 map <C-n> :NERDTreeToggle<CR>
 
-" Light line
-set laststatus=2
 
 " Change swp file location
-
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
-"Tabs "
+" Tabs 
 set expandtab
 set smarttab
 set shiftwidth=2
@@ -93,21 +93,25 @@ set tabstop=2
 set autoindent
 filetype indent plugin on
 
-"Search : 
+" Search 
 set ignorecase
 set incsearch
 set hlsearch
 set smartcase
 set showmatch
 
-"Folding 
+" Folding 
 set foldenable 
 set foldlevelstart=10
 set foldmethod=indent 
 
-"Splits 
+" Splits 
 set splitbelow
 set splitright
+
+
+" BINDINGS 
+let mapleader = "\<Space>"
 
 " Insert mode bindings 
 inoremap jk <Esc>
@@ -129,13 +133,11 @@ autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shell
 autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 
+" Functions 
 function CompTemp()
   :read ~/.vim/templates/comp.cc
 endfunction!
 
-" Config for YouCompleteMe
-let g:ycm_complete_in_comments=0
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 
 
