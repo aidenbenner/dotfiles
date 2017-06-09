@@ -45,6 +45,7 @@ set clipboard=unnamedplus
 " UI 
 set ruler
 set number
+set relativenumber
 set cursorline
 set nocompatible
 set showcmd 
@@ -139,8 +140,4 @@ autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<C
 " Functions 
 function CompTemp()
   :read ~/.vim/templates/comp.cc
-endfunction!
-
-
-
-
+endfunction! 
