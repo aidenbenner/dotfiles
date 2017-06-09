@@ -15,7 +15,7 @@ rsibreak
 zsh 
 git 
 xclip
-qpdfview
+zathura
 mpv
 tmux
 cmake

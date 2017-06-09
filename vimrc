@@ -30,6 +30,9 @@ Plug 'maksimr/vim-jsbeautify'
 " CSS 
 Plug 'ap/vim-css-color'
 
+" Latex 
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " Config for YouCompleteMe
