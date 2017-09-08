@@ -109,3 +109,6 @@ fi
 
 # source ~/.rvm/scripts/rvm
 
+echo "bash rc hit"
+
+
