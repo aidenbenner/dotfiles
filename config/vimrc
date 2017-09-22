@@ -34,7 +34,16 @@ Plug 'ap/vim-css-color'
 " Latex 
 Plug 'lervag/vimtex'
 
+" George
+Plug 'hkmix/vim-george'
+
 call plug#end()
+
+" vimtex config
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+let g:latex_view_general_viewer = "zathura"
+let g:vimtex_view_method = "zathura"
+let g:tex_conceal = ""
 
 " Config for YouCompleteMe
 let g:ycm_complete_in_comments=0
@@ -136,7 +145,15 @@ autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shell
 autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 
+autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
+
 " Functions 
 function CompTemp()
   :read ~/.vim/templates/comp.cc
 endfunction! 
+
+augroup latex_group
+  au Filetype tex nmap <buffer> <F3> <plug>(vimtex-compile)
+  au Filetype tex nmap <buffer> <F4> <plug>(vimtex-errors)
+  au Filetype tex nmap <buffer> <F5> <plug>(vimtex-view)
+augroup END
