@@ -12,6 +12,7 @@ vim-gtk
 redshift 
 rsibreak 
 zsh 
+i3
 git 
 xclip
 zathura

@@ -27,6 +27,7 @@ antigen apply
 # Minimalist theme
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 
 # manually set your language environment
 export LANG=en_US.UTF-8
