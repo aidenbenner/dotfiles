@@ -35,7 +35,7 @@ Plug 'ap/vim-css-color'
 Plug 'lervag/vimtex'
 
 " George
-Plug 'hkmix/vim-george'
+Plug 'aidenbenner/vim-george'
 
 call plug#end()
 
