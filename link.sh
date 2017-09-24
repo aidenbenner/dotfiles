@@ -9,3 +9,8 @@ do
   # symlink
 	ln -sfv $PWD/$file ~/.$name
 done
+
+
+# i3
+mkdir -p ~/.i3
+ln -sfv ./i3/config ~/.i3/config
