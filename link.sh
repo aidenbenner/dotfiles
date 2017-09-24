@@ -13,4 +13,4 @@ done
 
 # i3
 mkdir -p ~/.i3
-ln -sfv ./i3/config ~/.i3/config
+ln -sfv $PWD/i3/config ~/.i3/config
