@@ -28,6 +28,9 @@ texlive-latex-base texlive-fonts-recommended texlive-latex-recommended
 python-dev python3-dev build-essential cmake 
 "
 
+# OMZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # zsh themes
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
@@ -36,8 +39,6 @@ do
   sudo apt-get install $f -y 
 done
 
-# OMZSH
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
