@@ -215,7 +215,7 @@ autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%
 
 autocmd filetype george nnoremap <leader>r :GeorgeCheck <CR>
 inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab>      pumvisible() ? "\<up><up><C-n>" : "\<S-Tab>"
+inoremap <expr><S-Tab>      pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Functions 
 function CompTemp()
