@@ -14,8 +14,18 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alvan/vim-closetag'
 
-" Autocomplete
-Plug 'valloric/youcompleteme'
+" Autocomplete + Lint 
+" No tears now only dreams Plug 'valloric/youcompleteme'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neoinclude.vim'
+
+Plug 'ternjs/tern_for_vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'justmao945/vim-clang'
+Plug 'lervag/vimtex'
+
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 
 " Markdown 
 Plug 'godlygeek/tabular'
@@ -38,6 +48,62 @@ Plug 'lervag/vimtex'
 Plug 'aidenbenner/vim-george'
 
 call plug#end()
+
+"" Config for neocomplete  
+" Config for clang
+let g:clang_auto = 0
+let g:clang_c_completeopt = 'menuone'
+let g:clang_cpp_completeopt = 'menuone'
+let g:clang_exec = 'clang'
+let g:clang_cpp_options = '-std=c++14'
+
+" Config for jedi
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+
+let g:acp_enableAtStartup = 1
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#auto_complete_delay = 0
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#sources#omni#input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+let g:neocomplete#sources#omni#input_patterns.tex =
+        \ '\v\\%('
+        \ . '\a*%(ref|cite)\a*%(\s*\[[^]]*\])?\s*\{[^{}]*'
+        \ . '|includegraphics%(\s*\[[^]]*\])?\s*\{[^{}]*'
+        \ . '|%(include|input)\s*\{[^{}]*'
+        \ . ')'
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+
+"" Config for Ale
+let g:ale_linters = {
+      \ 'javascript': [ 'eslint' ],
+      \ 'python': [ 'autopep', 'flake8', 'pylint' ],
+      \ 'cpp': [ 'gcc', 'clang' ],
+      \}
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " vimtex config
 let g:vimtex_compiler_latexmk = {'callback' : 0}
@@ -146,6 +212,9 @@ autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 
 autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
+
+autocmd filetype george nnoremap <leader>r :GeorgeCheck <CR>
+inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Functions 
 function CompTemp()
