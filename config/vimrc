@@ -5,6 +5,9 @@ call plug#begin('~/.vim/plugged')
 " Colors
 Plug 'jacoborus/tender.vim'
 
+" Find 
+Plug 'junegunn/fzf'
+
 " Misc
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
@@ -184,6 +187,7 @@ set foldenable
 set foldlevelstart=10
 set foldmethod=indent 
 
+
 " Splits 
 set splitbelow
 set splitright
@@ -202,6 +206,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <leader>f :FZF <cr>
 nnoremap <leader>t :call CompTemp() <cr>
 nnoremap <leader>m :w <bar> exec ':!make' <CR> 
 
