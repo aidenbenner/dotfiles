@@ -8,23 +8,19 @@ sudo apt-get update -y
 # vim-gtk needed for clipboard on ubuntu 
 export install="
 vim 
+tmux
 vim-gtk 
 redshift 
-rsibreak 
 zsh 
 i3
 git 
 xclip
 zathura
 mpv
-tmux
 cmake
 meld
 npm
 pandoc
-octave
-texlive-latex-base texlive-fonts-recommended texlive-latex-recommended 
-python-dev python3-dev build-essential cmake 
 "
 
 # OMZSH
@@ -68,7 +64,4 @@ cd fonts
 ./install.sh 
 cd ..
 rm -rf fonts
-
-cd ~/.vim/plugged/youcompleteme 
-./install.py --clang-completer --tern-completer
 
