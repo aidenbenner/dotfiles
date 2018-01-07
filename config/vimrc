@@ -119,7 +119,7 @@ let g:ycm_complete_in_comments=0
 let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " UI 
 set ruler
@@ -170,8 +170,8 @@ set directory=~/.vim/.swp//
 " Tabs 
 set expandtab
 set smarttab
-set shiftwidth=2
-set tabstop=2
+set shiftwidth=4
+set tabstop=4
 set autoindent
 filetype indent plugin on
 
@@ -183,7 +183,7 @@ set smartcase
 set showmatch
 
 " Folding 
-set foldenable 
+set nofoldenable 
 set foldlevelstart=10
 set foldmethod=indent 
 
