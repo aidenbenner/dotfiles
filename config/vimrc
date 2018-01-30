@@ -2,13 +2,15 @@
 " Plugins  
 call plug#begin('~/.vim/plugged')
 
-" Colors
+Plug 'editorconfig/editorconfig-vim'
+
+ "Colors
 Plug 'jacoborus/tender.vim'
 
-" Find 
+ "Find 
 Plug 'junegunn/fzf'
 
-" Misc
+ "Misc
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
@@ -17,8 +19,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'alvan/vim-closetag'
 
-" Autocomplete + Lint 
-" No tears now only dreams Plug 'valloric/youcompleteme'
+Plug 'Chiel92/vim-autoformat'
+
+ "Autocomplete + Lint 
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neoinclude.vim'
 
@@ -27,28 +30,28 @@ Plug 'davidhalter/jedi-vim'
 Plug 'justmao945/vim-clang'
 Plug 'lervag/vimtex'
 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 
-" Markdown 
+ "Markdown 
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
 
-" JS 
+ "JS 
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 
-" CSS 
+ "CSS 
 Plug 'ap/vim-css-color'
 
-" Latex 
+ "Latex 
 Plug 'lervag/vimtex'
 
 " George
-Plug 'aidenbenner/vim-george'
+" Plug 'aidenbenner/vim-george'
 
 call plug#end()
 
@@ -124,8 +127,8 @@ set clipboard=unnamed
 " UI 
 set ruler
 set number
-set relativenumber
-set cursorline
+" set relativenumber
+" set cursorline
 set nocompatible
 set showcmd 
 set lazyredraw
@@ -232,3 +235,12 @@ augroup latex_group
   au Filetype tex nmap <buffer> <F4> <plug>(vimtex-errors)
   au Filetype tex nmap <buffer> <F5> <plug>(vimtex-view)
 augroup END
+
+
+
+
+
+
+noremap <F3> :Autoformat<CR>
+
+

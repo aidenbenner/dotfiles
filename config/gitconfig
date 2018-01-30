@@ -10,3 +10,5 @@
 
 [credential]
   helper = cache --timeout 30000
+[core]
+	editor = /usr/local/bin/vim
