@@ -1,39 +1,10 @@
 #!/bin/bash
 
-echo Install Software
-
-sudo add-apt-repository ppa:neovim-ppa/stable -y
-sudo apt-get update -y 
-
-# vim-gtk needed for clipboard on ubuntu 
-export install="
-vim 
-tmux
-vim-gtk 
-redshift 
-zsh 
-i3
-git 
-xclip
-zathura
-mpv
-cmake
-meld
-npm
-pandoc
-"
-
 # OMZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # zsh themes
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-for f in $install
-do  
-  sudo apt-get install $f -y 
-done
-
 
 echo Install Vimplug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
