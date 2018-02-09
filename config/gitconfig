@@ -1,9 +1,9 @@
 [user]
-	name = aidenbenner
+	name = Aiden Benner
 	email = aiden.benner@gmail.com
 
 [diff]
-	tool = meld 
+	tool = meld
 
 [merge]
 	tool = meld
