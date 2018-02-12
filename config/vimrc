@@ -1,115 +1,75 @@
-
-" Plugins  
+" Plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
 
- "Colors
+" Colors
 Plug 'jacoborus/tender.vim'
 
- "Find 
+" Find
 Plug 'junegunn/fzf'
 
- "Misc
+" Misc
 Plug 'junegunn/vim-easy-align'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" closes html tags
 Plug 'alvan/vim-closetag'
 
+" :Autoformat
 Plug 'Chiel92/vim-autoformat'
 
- "Autocomplete + Lint 
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neoinclude.vim'
-
+" Languages
 Plug 'ternjs/tern_for_vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'justmao945/vim-clang'
 Plug 'lervag/vimtex'
 
-"Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 
- "Markdown 
+" Markdown
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
 
- "JS 
+" JS
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'maksimr/vim-jsbeautify'
 
- "CSS 
+" CSS
 Plug 'ap/vim-css-color'
 
- "Latex 
+" Latex
 Plug 'lervag/vimtex'
-
-" George
-" Plug 'aidenbenner/vim-george'
 
 call plug#end()
 
-"" Config for neocomplete  
-" Config for clang
-let g:clang_auto = 0
-let g:clang_c_completeopt = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-let g:clang_exec = 'clang'
-let g:clang_cpp_options = '-std=c++14'
-
-" Config for jedi
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
-
-let g:acp_enableAtStartup = 1
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#auto_complete_delay = 0
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-let g:neocomplete#sources#omni#input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
-let g:neocomplete#sources#omni#input_patterns.tex =
-        \ '\v\\%('
-        \ . '\a*%(ref|cite)\a*%(\s*\[[^]]*\])?\s*\{[^{}]*'
-        \ . '|includegraphics%(\s*\[[^]]*\])?\s*\{[^{}]*'
-        \ . '|%(include|input)\s*\{[^{}]*'
-        \ . ')'
-
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 
-"" Config for Ale
-let g:ale_linters = {
-      \ 'javascript': [ 'eslint' ],
-      \ 'python': [ 'autopep', 'flake8', 'pylint' ],
-      \ 'cpp': [ 'gcc', 'clang' ],
-      \}
 
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 " vimtex config
 let g:vimtex_compiler_latexmk = {'callback' : 0}
@@ -117,39 +77,33 @@ let g:latex_view_general_viewer = "zathura"
 let g:vimtex_view_method = "zathura"
 let g:tex_conceal = ""
 
-" Config for YouCompleteMe
-let g:ycm_complete_in_comments=0
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
-
 " Use system clipboard
 set clipboard=unnamed
 
-" UI 
+" UI
 set ruler
 set number
 " set relativenumber
 " set cursorline
-set nocompatible
-set showcmd 
+set showcmd
 set lazyredraw
 
 let loaded_matchparen = 1
 filetype plugin indent on
 set spell spelllang=en_us
 
-" Colors  
+" Colors
 syntax on
-set t_Co=256
-colorscheme tender 
+colorscheme tender
 
-" Airline  
+" Airline
 set laststatus=2
 let g:airline_theme='simple'
 
-" Bash for windows 
+" Bash for windows
 set term=screen-256color
 
-" Misc 
+" Misc
 set nocp
 set wildmenu
 set backspace=eol,start,indent
@@ -170,7 +124,7 @@ set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
-" Tabs 
+" Tabs
 set expandtab
 set smarttab
 set shiftwidth=4
@@ -178,31 +132,30 @@ set tabstop=4
 set autoindent
 filetype indent plugin on
 
-" Search 
+" Search
 set ignorecase
 set incsearch
 set hlsearch
 set smartcase
 set showmatch
 
-" Folding 
-set nofoldenable 
+" Folding
+set nofoldenable
 set foldlevelstart=10
-set foldmethod=indent 
+set foldmethod=indent
 
-
-" Splits 
+" Splits
 set splitbelow
 set splitright
 
-" BINDINGS 
+" BINDINGS
 let mapleader = "\<Space>"
 
-" Insert mode bindings 
+" Insert mode bindings
 inoremap jk <Esc>
 
-" Normal mode bindings 
-" split settings " 
+" Normal mode bindings
+" split settings "
 nmap <S-Tab> :tabn <CR>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -211,35 +164,28 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <leader>f :FZF <cr>
 nnoremap <leader>t :call CompTemp() <cr>
-nnoremap <leader>m :w <bar> exec ':!make' <CR> 
+nnoremap <leader>m :w <bar> exec ':!make' <CR>
 
 autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cpp nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o ' .shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
-
 autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
 
-autocmd filetype george nnoremap <leader>r :GeorgeCheck <CR>
 inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab>      pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Functions 
+" Functions
 function CompTemp()
-  :read ~/.vim/templates/comp.cc
-endfunction! 
+    :read ~/.vim/templates/comp.cc
+endfunction!
 
 augroup latex_group
-  au Filetype tex nmap <buffer> <F3> <plug>(vimtex-compile)
-  au Filetype tex nmap <buffer> <F4> <plug>(vimtex-errors)
-  au Filetype tex nmap <buffer> <F5> <plug>(vimtex-view)
+    au Filetype tex nmap <buffer> <F3> <plug>(vimtex-compile)
+    au Filetype tex nmap <buffer> <F4> <plug>(vimtex-errors)
+    au Filetype tex nmap <buffer> <F5> <plug>(vimtex-view)
 augroup END
-
-
-
-
-
 
 noremap <F3> :Autoformat<CR>
 

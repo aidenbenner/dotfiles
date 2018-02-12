@@ -1,6 +1,4 @@
 " Vim config for ideavim " 
 imap jk <Esc> 
-
-
 set clipboard+=unnamed
 

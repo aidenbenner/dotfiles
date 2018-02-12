@@ -3,6 +3,8 @@
 #alias mv='mv -iv'
 #alias cp='cp -iv'
 
+alias v='vim'
+function gr() { grep -rnIi --color "$1" "${2:-.}"; }
 
 alias rm='rm -v' 
 alias mv='mv -v'

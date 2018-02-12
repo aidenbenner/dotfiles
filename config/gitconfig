@@ -3,12 +3,22 @@
 	email = aiden.benner@gmail.com
 
 [diff]
-	tool = meld
-
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
 [merge]
-	tool = meld
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 
 [credential]
   helper = cache --timeout 30000
+
 [core]
-	editor = /usr/local/bin/vim
+	editor = vim
