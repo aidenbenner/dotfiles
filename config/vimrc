@@ -9,9 +9,12 @@ Plug 'jacoborus/tender.vim'
 " Find
 Plug 'junegunn/fzf'
 
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
 " Misc
 Plug 'junegunn/vim-easy-align'
-Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
@@ -125,10 +128,13 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
 " Tabs
+set tabstop=8
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
 set autoindent
 filetype indent plugin on
 
@@ -151,6 +157,17 @@ set splitright
 " BINDINGS
 let mapleader = "\<Space>"
 
+" Fugitive bindings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gD :Gdiff HEAD<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gl :Git log<CR>
+nnoremap <leader>gp :Git push<CR>
+nnoremap <leader>gw :Gwrite<CR>
+nnoremap <leader>gr :Gremove<CR>
+nnoremap <leader>gg :Ggrep<Space>
+
 " Insert mode bindings
 inoremap jk <Esc>
 
@@ -168,7 +185,7 @@ nnoremap <leader>m :w <bar> exec ':!make' <CR>
 
 autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' .out && ./'.shellescape('%:r').'.out'<CR>
 autocmd filetype cpp,cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r')'.out && ./'.shellescape('%:r')'.out' <CR>
-autocmd FileType python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
+autocmd filetype python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
 
