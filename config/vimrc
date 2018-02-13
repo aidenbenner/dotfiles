@@ -171,6 +171,10 @@ nnoremap <leader>gg :Ggrep<Space>
 " Insert mode bindings
 inoremap jk <Esc>
 
+" Neocomplete menu control with tab/stab
+inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab>      pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Normal mode bindings
 " split settings "
 nmap <S-Tab> :tabn <CR>
@@ -189,8 +193,6 @@ autocmd filetype python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape
 autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
 autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
 
-inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab>      pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Functions
 function CompTemp()
