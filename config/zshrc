@@ -67,3 +67,5 @@ zle -N zle-keymap-select
 
 
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
