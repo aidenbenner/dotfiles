@@ -63,14 +63,6 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -120,8 +112,6 @@ highlight ColorColumn ctermbg=darkgray
 au! BufRead,BufNewFile *.markdown set filetype=mkd
 au! BufRead,BufNewFile *.md       set filetype=mkd
 
-map <C-n> :NERDTreeToggle<CR>
-
 " Change swp file location
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
@@ -157,7 +147,17 @@ set splitright
 " BINDINGS
 let mapleader = "\<Space>"
 
-" Fugitive bindings
+"" bindings - plugins 
+
+"" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+"" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+map <C-n> :NERDTreeToggle<CR>
+
+"" Fugitive bindings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gD :Gdiff HEAD<CR>
