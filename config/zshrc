@@ -2,6 +2,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+# doesn't throw an error when wildcard isn't found
+unsetopt nomatch
+
 # Antigen
 source ~/.antigen/antigen/antigen.zsh
 
@@ -24,7 +27,6 @@ antigen theme robbyrussell
 
 # Tell antigen that you're done.
 antigen apply
-
 # Minimalist theme
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="robbyrussell"
