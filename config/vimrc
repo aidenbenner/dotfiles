@@ -30,7 +30,6 @@ Plug 'Chiel92/vim-autoformat'
 " Languages
 Plug 'ternjs/tern_for_vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'justmao945/vim-clang'
 Plug 'lervag/vimtex'
 
 Plug 'w0rp/ale'

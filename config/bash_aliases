@@ -27,6 +27,7 @@ alias mkdir="mkdir -p"
 alias top="htop"
 
 # Git - in zsh plugin git now
+alias gcheck='git stash save && git stash apply'
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
@@ -42,14 +43,17 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias sagi='sudo apt-get install' 
-alias sagu='sudo apt-get update' 
-alias sagup='sudo apt-get upgrade' 
+alias sagi='sudo apt-get install'
+alias sagu='sudo apt-get update'
+alias sagup='sudo apt-get upgrade'
 alias s='sudo'
 
 # human readable du
 alias du="du -h"
 alias df="df -h"
+
+alias aliases="alias|less"
+alias sourceal="source ~/.bash_aliases"
 
 
 # python
@@ -126,8 +130,8 @@ sort -u | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
   git checkout $(echo "$target" | awk '{print $2}')
 }
 
-# fshow - git commit browser
-fshow() {
+# flog - git commit browser
+flog() {
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
