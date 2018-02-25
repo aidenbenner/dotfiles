@@ -10,20 +10,20 @@
 #define INF 1e9
 #define EPS 1e-9
 
+#define push_back pb
+#define x first
+#define y second
+
 using namespace std;
 
-typedef vector<vector<pair<int,int>>> Adjlist;
+typedef vector<vector<pair<int,int> > > Adjlist;
 typedef unsigned long long ull;
 typedef long long ll;
 
 const ull MOD = 1e9 + 7;
 
-int N; 
+int n;
 int main()
 {
-  std::ios_base::sync_with_stdio(false); 
-  scanf("%d", &N); 
-  for(int T = 1; T<=N; T++){
-
-  }
+    cin >> n;
 }
