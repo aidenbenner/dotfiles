@@ -2,3 +2,9 @@
 imap jk <Esc> 
 set clipboard+=unnamed
 
+set ignorecase
+set incsearch
+set hlsearch
+set smartcase
+set showmatch
+

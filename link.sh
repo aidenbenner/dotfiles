@@ -10,6 +10,8 @@ do
     ln -sfv $PWD/$file ~/.$name
 done
 
+#templates
+ln -sfv $PWD/templates/comp.cc ~/.vim/templates/comp.cc
 
 # i3
 mkdir -p ~/.i3
