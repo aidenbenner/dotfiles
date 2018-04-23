@@ -1,28 +1,30 @@
+#!/bin/bash
+
 # Probably gonna regret this but it's too annoying
-#alias rm='rm -iv' 
+#alias rm='rm -iv'
 #alias mv='mv -iv'
 #alias cp='cp -iv'
 
 alias v='vim'
 function gr() { grep -rnIi --color "$1" "${2:-.}"; }
 
-alias rm='rm -v' 
+alias rm='rm -v'
 alias mv='mv -v'
 alias cp='cp -v'
 
-# cd 
+# cd
 alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-# ls 
+# ls
 alias sl="ls"
 alias lsl="ls | less"
 alias ll="ls -ah"
 
-# Other 
+# Other
 alias mkdir="mkdir -p"
 alias top="htop"
 
@@ -143,3 +145,6 @@ FZF-EOF"
 }
 
 source ~/.machine_aliases
+
+alias e='emacsclient -c -a ""'
+alias et='emacsclient -t -c -a ""'
