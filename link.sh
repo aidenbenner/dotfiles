@@ -10,6 +10,13 @@ do
     ln -sfv $PWD/$file ~/.$name
 done
 
+if [ ! -e "~/.machine_aliases" ]; then
+    echo "no machine alises found creating blank"
+    touch ~/.machine_aliases
+else 
+    echo "found machine aliases"
+fi
+
 #templates
 ln -sfv $PWD/templates/comp.cc ~/.vim/templates/comp.cc
 

@@ -27,16 +27,10 @@ antigen theme robbyrussell
 
 # Tell antigen that you're done.
 antigen apply
-# Minimalist theme
-# ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="robbyrussell"
-# ZSH_THEME="alien"
-#ZSH_THEME="agnoster"
 
 # manually set your language environment
 export LANG=en_US.UTF-8
-
-DEFAULT_USER='aiden'
 
 # If not running interactively, do not do anything
 [[ $- != *i* ]] && return
@@ -47,29 +41,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-bindkey -v
-
-source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_aliases
-
 # ls when directory changes
 chpwd() ls
 
-set -o vi
-bindkey -M viins 'jk' vi-cmd-mode
-
-function zle-line-init zle-keymap-select {
-    RPS1="${${KEYMAP/vicmd/NORMAL}/(main|viins)/INSERT}"
-    RPS2=$RPS1
-    zle reset-prompt
-}
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
 autoload zmv
 autoload zcp
+
 
