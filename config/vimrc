@@ -72,7 +72,7 @@ let g:vimtex_view_method = "zathura"
 let g:tex_conceal = ""
 
 " Use system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " UI
 set ruler
