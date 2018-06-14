@@ -30,6 +30,7 @@
 
 [core]
     editor         = vim
+	excludesfiles = ~/.gitignore_global
 
 [diff "localizablestrings"]
     textconv = "iconv -f utf-16 -t utf-8"
