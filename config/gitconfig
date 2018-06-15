@@ -1,36 +1,37 @@
 [user]
-    name           = Aiden Benner
-    email          = aiden.benner@gmail.com
+name           = Aiden Benner
+email          = aiden.benner@gmail.com
+signingkey     = 2E12B9F31D1C295B
 
 [commit]
-    template       = ~/.git-commit-template.txt
+template       = ~/.git-commit-template.txt
 
 [diff]
-    tool           = meld
+tool           = meld
 
 [difftool]
-    prompt         = false
+prompt         = false
 
 [difftool "meld"]
-    trustExitCode  = true
-    cmd            = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+trustExitCode  = true
+cmd            = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-    tool           = meld
+tool           = meld
 
 [mergetool]
-    prompt         = false
+prompt         = false
 
 [mergetool "meld"]
-    trustExitCode  = true
-    cmd            = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+trustExitCode  = true
+cmd            = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 
 [credential]
-    helper         = cache --timeout 30000
+helper         = cache --timeout 30000
 
 [core]
-    editor         = vim
-	excludesfiles = ~/.gitignore_global
+editor         = vim
+excludesfiles  = ~/.gitignore_global
 
 [diff "localizablestrings"]
-    textconv = "iconv -f utf-16 -t utf-8"
+textconv = "iconv -f utf-16 -t utf-8"
