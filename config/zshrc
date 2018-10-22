@@ -1,12 +1,33 @@
 # Borrowed from https://github.com/lpan/dotfiles/blob/master/files/desktop/.zshrc
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
 # doesn't throw an error when wildcard isn't found
 unsetopt nomatch
 
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
 # Antigen
 source ~/.antigen/antigen/antigen.zsh
+
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+function git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -22,12 +43,13 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 
 # antigen theme eendroroy/alien alien
-antigen theme robbyrussell
-# antigen theme agnoster
+# antigen theme robbyrussell
+# antigen theme bira
+antigen theme avit
+# antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that you're done.
 antigen apply
-ZSH_THEME="robbyrussell"
 
 # manually set your language environment
 export LANG=en_US.UTF-8
@@ -41,13 +63,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# ls when directory changes
-chpwd() ls
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 autoload zmv
 autoload zcp
 
-
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'

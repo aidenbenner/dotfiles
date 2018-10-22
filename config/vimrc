@@ -1,13 +1,22 @@
 " Plugins
 call plug#begin('~/.vim/plugged')
+source ~/.privatevimrc
+
+" Plug 'google/vim-maktaba'
+" Plug 'google/vim-codefmt'
+" Plug 'google/vim-glaive'
 
 Plug 'editorconfig/editorconfig-vim'
 
 " Colors
 Plug 'jacoborus/tender.vim'
 
+" Completion
+Plug 'Valloric/YouCompleteMe'
+
 " Find
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -21,49 +30,16 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" closes html tags
-Plug 'alvan/vim-closetag'
-
-" :Autoformat
-Plug 'Chiel92/vim-autoformat'
-
-" Languages
-Plug 'ternjs/tern_for_vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'lervag/vimtex'
-
-Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
-
-" Markdown
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'reedes/vim-pencil'
-Plug 'junegunn/goyo.vim'
-
-" JS
-Plug 'pangloss/vim-javascript'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'maksimr/vim-jsbeautify'
-
-" CSS
-Plug 'ap/vim-css-color'
-
 " Latex
 Plug 'lervag/vimtex'
 
 call plug#end()
 
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" the glaive#Install() should go after the "call vundle#end()"
+call glaive#Install()
+" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
+Glaive codefmt plugin[mappings]
+Glaive codefmt google_java_executable="java -jar /path/to/google-java-format-VERSION-all-deps.jar"
 
 " vimtex config
 let g:vimtex_compiler_latexmk = {'callback' : 0}
@@ -78,7 +54,6 @@ set clipboard=unnamedplus
 set ruler
 set number
 " set relativenumber
-" set cursorline
 set showcmd
 set lazyredraw
 
@@ -92,29 +67,29 @@ colorscheme tender
 
 " Airline
 set laststatus=2
-let g:airline_theme='simple'
-
-" Bash for windows
-set term=screen-256color
+let g:airline_theme='luna'
 
 " Misc
 set nocp
 set wildmenu
 set backspace=eol,start,indent
 set autoread
+set autowrite
 set magic
 
-set colorcolumn=110
+set colorcolumn=80
 highlight ColorColumn ctermbg=darkgray
-
-"md, markdown == mkd
-au! BufRead,BufNewFile *.markdown set filetype=mkd
-au! BufRead,BufNewFile *.md       set filetype=mkd
 
 " Change swp file location
 set undodir=~/.vim/.undo//
 set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
+
+if has('persistent_undo')      "check if your vim version supports it
+  set undofile                 "turn on the feature  
+  set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
+  endif     
+
 
 " Tabs
 set tabstop=8
@@ -146,7 +121,6 @@ set splitright
 " BINDINGS
 let mapleader = "\<Space>"
 
-"" bindings - plugins 
 
 "" Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -170,10 +144,6 @@ nnoremap <leader>gg :Ggrep<Space>
 " Insert mode bindings
 inoremap jk <Esc>
 
-" Neocomplete menu control with tab/stab
-inoremap <expr><Tab>        pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab>      pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Normal mode bindings
 " split settings "
 nmap <S-Tab> :tabn <CR>
@@ -182,16 +152,23 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <leader>f :FZF <cr>
-nnoremap <leader>t :call CompTemp() <cr>
+nnoremap <leader>ff :Files <cr>
+nnoremap <leader>b :Buffers <cr>
+nnoremap <leader>fb :Lines <cr>
+nnoremap <leader>s :GFiles? <cr>
+" nnoremap <leader>t :call CompTemp() <cr>
 nnoremap <leader>m :w <bar> exec ':!make' <CR>
 
-autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' .out && ./'.shellescape('%:r').'.out'<CR>
-autocmd filetype cpp,cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r')'.out && ./'.shellescape('%:r')'.out' <CR>
-autocmd filetype python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
-autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
-autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
-
+"autocmd filetype c nnoremap <leader>r :w <bar> exec '!gcc -std=c99 '.shellescape('%').' -o '.shellescape('%:r').' .out && ./'.shellescape('%:r').'.out'<CR>
+"autocmd filetype cpp,cc nnoremap <leader>r :w <bar> exec '!g++ -g -std=c++11 '.shellescape('%').' -o  '.shellescape('%:r')'.out && ./'.shellescape('%:r')'.out' <CR>
+"autocmd filetype python nnoremap <leader>r :w <bar> exec '!python3 ' shellescape(@%, 1)<CR>
+"autocmd filetype sh nnoremap <leader>r :w <bar> exec '!sh ' shellescape(@%, 1)<CR>
+"autocmd filetype scala nnoremap <leader>r :w <bar> exec '!scala ' shellescape(@%, 1)<CR>
+"
+"
+" Wrapped line relative j and k 
+noremap j gj
+noremap k gk
 
 " Functions
 function CompTemp()
@@ -206,4 +183,4 @@ augroup END
 
 noremap <F3> :Autoformat<CR>
 
-
+autocmd Filetype gn setlocal shiftwidth=2 tabstop=2
