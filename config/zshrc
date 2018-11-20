@@ -23,6 +23,24 @@ function git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+function fzbranch() {
+  local branches branch
+  branches=$(git branch -vv)
+  branch=$(echo "$branches" | fzf +m)
+  branch=$(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  BUFFER="$BUFFER $branch"
+}
+
+zle -N fzbranch 
+bindkey "^b" fzbranch 
+
 pastefinish() {
   zle -N self-insert $OLD_SELF_INSERT
 }
