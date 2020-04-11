@@ -61,9 +61,9 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 
 # antigen theme eendroroy/alien alien
-# antigen theme robbyrussell
+antigen theme robbyrussell
 # antigen theme bira
-antigen theme avit
+# antigen theme avit
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that you're done.
